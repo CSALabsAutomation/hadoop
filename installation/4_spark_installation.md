@@ -39,7 +39,7 @@
 7.  Add the below lines to configure Spark path at the end. Save[CTRL + S] the file and Quit[CTRL + X]. Also make sure SPARK_HOME path is correctly given.
 
     ```
-    SPARK_HOME=/spark/spark-3.3.1-bin-hadoop3
+    export SPARK_HOME=/home/hdoop/spark/spark-3.3.1-bin-hadoop3
     export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
     ```
 
