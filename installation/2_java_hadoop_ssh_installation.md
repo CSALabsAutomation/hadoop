@@ -214,7 +214,7 @@
      <property>
      <name>mapreduce.framework.name</name>
      <value>yarn</value>
-     </property
+     </property>
      ```
 		
 #### Modification 6 
