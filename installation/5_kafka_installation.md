@@ -39,7 +39,7 @@
 7.  Add the below lines to configure Kafka path at the end. Save[CTRL + S] the file and Quit[CTRL + X]. Also make sure SPARK_HOME path is correctly given.
 
     ```
-    export KAFKA_HOME=~/kafka_2.13-3.3.1
+    export KAFKA_HOME=/home/hdoop/kafka/kafka_2.13-3.3.1
     ```
 
 8.  Reload the modified code.
@@ -48,6 +48,12 @@
     source  ~/.bashrc
     ```
 
+9.  Navigate to the kafka folder by running the below command
+
+    ```
+    cd $KAFKA_HOME
+    ```
+    
 
 ### Start Kafka environment
 
