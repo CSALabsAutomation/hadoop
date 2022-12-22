@@ -29,8 +29,8 @@
     ```
     tar -xvf spark-3.3.1-bin-hadoop3.tgz
     ```
-    
-6.	Run the below command to open bashrc file.
+
+6.  Come out of spark folder by typing `cd` and run the below command to open bashrc file.	
 
     ```
     sudo nano .bashrc
@@ -48,8 +48,14 @@
     ```
     source  ~/.bashrc
     ```
+
+9.  Now navigate to the `spark` folder.
+ 
+    ```
+    cd spark
+    ```
     
-9.  To initiate the spark-shell, you should be in /bin. Navigate to `spark-3.3.1-bin-hadoop3/bin path`
+11. To initiate the spark-shell, you should be in /bin. Navigate to `spark-3.3.1-bin-hadoop3/bin path`
 
     ```
     cd spark-3.3.1-bin-hadoop3/bin
