@@ -30,11 +30,12 @@
     tar -xvf kafka_2.13-3.3.1.tgz
     ```
     
-6.	Run the below command to open bashrc file.
+6.  Come out of spark folder by typing `cd` and run the below command to open bashrc file.
 
     ```
     sudo nano .bashrc
     ```
+    
 7.  Add the below lines to configure Kafka path at the end. Save[CTRL + S] the file and Quit[CTRL + X]. Also make sure SPARK_HOME path is correctly given.
 
     ```
