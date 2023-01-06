@@ -22,7 +22,7 @@ To install Hive, you need to have Hadoop installed and SSH server running. To kn
    sudo nano .bashrc
    ```
    
-4.	Add the below lines to configure Hive path at the end. Save[CTRL + S] the file and Quit[CTRL + X]. Also make sure HIVE_HOME path is correctly given
+4.	Add the below lines to configure Hive path at the end. Save[CTRL + S] the file and Quit[CTRL + X]. Also make sure HIVE_HOME path is given correctly.
 
     ```
     export HIVE_HOME=/home/hdoopuser/apache-hive-3.1.2-bin
