@@ -1,12 +1,7 @@
 #    Steps for installing Spark
 
-1.  Open the WSL [Ubuntu] terminal and navigate to your individual user.[ hdoop ] 
-
-    ```
-    su - hdoop
-    ```
     
-2.  Create a folder named as spark
+2.  In your Bastion, create a folder ``spark``.
 
     ```
     mkdir spark
@@ -39,7 +34,7 @@
 7.  Add the below lines to configure Spark path at the end. Save[CTRL + S] the file and Quit[CTRL + X]. Also make sure SPARK_HOME path is correctly given.
 
     ```
-    export SPARK_HOME=/home/hdoop/spark/spark-3.3.1-bin-hadoop3
+    export SPARK_HOME=/home/hdoopuser/spark/spark-3.3.1-bin-hadoop3
     export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
     ```
 
@@ -48,21 +43,17 @@
     ```
     source  ~/.bashrc
     ```
+    
+9.  Download the CData JDBC Driver for PostgreSQL installer, unzip the package, and run the JAR file to install the driver.
 
-9.  Now navigate to the `spark` folder.
- 
     ```
-    cd spark
+    wget https://jdbc.postgresql.org/download/postgresql-42.5.1.jar
     ```
     
-11. To initiate the spark-shell, you should be in /bin. Navigate to `spark-3.3.1-bin-hadoop3/bin path`
+10. Start the spark shell with the CData JDBC Driver for PostgreSQL JAR file as the jars parameter.
 
     ```
-    cd spark-3.3.1-bin-hadoop3/bin
-    ```
-    
-10)	 Now initiate the spark shell.
+    spark/spark-3.3.1-bin-hadoop3/bin/pyspark --jars /home/hdoopuser/postgresql-42.5.1.jar
 
-     ```
-     spark-shell
-     ```
+    ```
+
