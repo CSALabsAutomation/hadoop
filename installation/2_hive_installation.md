@@ -25,7 +25,7 @@ To install Hive, you need to have Hadoop installed and SSH server running. To kn
 4.	Add the below lines to configure Hive path at the end. Save[CTRL + S] the file and Quit[CTRL + X]. Also make sure HIVE_HOME path is correctly given
 
     ```
-    export HIVE_HOME=/home/hdoophome/apache-hive-3.1.2-bin
+    export HIVE_HOME=/home/hdoopuser/apache-hive-3.1.2-bin
     export PATH=$PATH:$HIVE_HOME/bin
     ```
 
