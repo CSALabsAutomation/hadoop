@@ -4,7 +4,7 @@
 To install Hive, you need to have Hadoop installed and SSH server running. To know more refer the link [ Hadoop Installation steps](../installation/2_java_hadoop_ssh_installation.md) for installation.
 
     
-2. In your Bastion, download Hive by using wget command in a specified location.
+1. In your Bastion, download Hive by using wget command in a specified location.
  
    ```
    wget https://downloads.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
