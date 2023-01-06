@@ -3,13 +3,8 @@
 
 To install Hive, you need to have Hadoop installed and SSH server running. To know more refer the link [ Hadoop Installation steps](../installation/2_java_hadoop_ssh_installation.md) for installation.
 
-1. Open the WSL [Ubuntu] terminal and navigate to your individual user.[ hdoop ] 
-
-    ```
-    su - hdoop
-    ```
     
-2. Download Hive by using wget command in a specified location.
+2. In your Bastion, download Hive by using wget command in a specified location.
  
    ```
    wget https://downloads.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
@@ -30,7 +25,7 @@ To install Hive, you need to have Hadoop installed and SSH server running. To kn
 4.	Add the below lines to configure Hive path at the end. Save[CTRL + S] the file and Quit[CTRL + X]. Also make sure HIVE_HOME path is correctly given
 
     ```
-    export HIVE_HOME=/home/hdoop/apache-hive-3.1.2-bin
+    export HIVE_HOME=/home/hdoophome/apache-hive-3.1.2-bin
     export PATH=$PATH:$HIVE_HOME/bin
     ```
 
@@ -49,7 +44,7 @@ To install Hive, you need to have Hadoop installed and SSH server running. To kn
 7.   Add the below lines to configure Hadoop path.
 
      ```
-     export HADOOP_HOME=/home/hdoop/hadoop-3.3.4
+     export HADOOP_HOME=/home/hdoopuser/hadoop-3.3.4
      ```
      
 7.  Create the tmp directory to store the result of query in directory 
