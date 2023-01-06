@@ -2,7 +2,7 @@
 
 ##	Java Installation 
 
-1. Open the WSL \[Ubuntu] terminal and update the package repository to ensure you download the latest software version.
+1. Open the Bastion terminal and update the package repository to ensure you download the latest software version.
 
     ```
     sudo apt update  
@@ -28,26 +28,11 @@
     sudo apt install openssh-server openssh-client -y  
     ```
 
-2. Adding a new individual user as `hdoop` and this user will use the Hadoop in the system. 
-
-    ```
-   sudo adduser hdoop 
-    ```
-    
-   > Make sure you set the password as **`hadoop123`** and you will be using same password whenever you login to `hdoop` user. 
-
-3. Login to the new user `hdoop` and enter password when it promts for it.
-
-    ```
-    su - hdoop
-    ```
-
 4. Generating the SSH key for the connection between local machine and Hadoop
 
     ```
     ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
     ```
-    
     
 
 5. Authorizing the key for connecting new user to the Hadoop.
@@ -67,28 +52,6 @@
     ```
     ssh localhost
     ```
-
-8. Navigate to existing user.
-
-    ```
-    su - hadoopuser  
-    ```
-    
-    > Enter password when it prompts .
-    
-9. Adding new user `hdoop` to sudo group.
-
-    ```
-    sudo adduser hdoop sudo
-    ```
-    
-10. Login to individual `hdoop` user :  
-
-    ```
-    su - hdoop
-    ```
-    > Enter password when it prompts .
-
     
 ##	Hadoop Installation
 
@@ -120,7 +83,7 @@
  2. Add the below lines at the end. Save[CTRL + S] the file and Quit[CTRL + X]. Also make sure HADOOP_HOME path is correctly given.
 	
      ```
-     export HADOOP_HOME=/home/hdoop/hadoop-3.3.4
+     export HADOOP_HOME=/home/hdoopuser/hadoop-3.3.4
      export HADOOP_INSTALL=$HADOOP_HOME
      export HADOOP_MAPRED_HOME=$HADOOP_HOME
      export HADOOP_COMMON_HOME=$HADOOP_HOME
@@ -170,7 +133,7 @@
      ```
      <property>
      <name>hadoop.tmp.dir</name>
-     <value>/home/hdoop/tmpdata</value>
+     <value>/home/hdoopuser/tmpdata</value>
      <description>A base for other temporary directories.</description>
      </property>
      <property>
@@ -192,11 +155,11 @@
      ```
      <property>
      <name>dfs.data.dir</name>
-     <value>home/hdoop/dfsdata/namenode</value>
+     <value>home/hdoopuser/dfsdata/namenode</value>
      </property>
      <property>
      <name>dfs.data.dir</name>
-     <value>home/hdoop/dfsdata/datanode</value>
+     <value>home/hdoopuser/dfsdata/datanode</value>
      </property>
      ```
 		
@@ -252,17 +215,6 @@
 
 After all 6 modifications, follow the below instrutions.
 
-1. Logout from your individual user.
-
-   	```
-	logout
-	```
-	
-2. Navigate to your existing user ( hadoopuser).
-
-	```
-	su - hadoopuser
-	```
 	
 4. Start the SSH 
 
@@ -276,12 +228,6 @@ After all 6 modifications, follow the below instrutions.
 	sudo service ssh status
 	```
 	
-4. Now navigate into individual user
-
-	```
-	su - hdoop
-	```
-
 5. Check if localhost works or not
 
 	```
@@ -329,28 +275,16 @@ After all 6 modifications, follow the below instrutions.
 	hdfs dfs -ls /
 	```
 
-14. Navigate to your group user.
-
-	```
-	su - hadoopuser
-	```
-
 15. Create an empty file inside ``/home/hadoopuser/``
 
 	```
 	mkdir example.txt
 	```
 
-16. Again login to ``hdoop`` user 
-
-	```
-	su - hdoop
-	```
-	
 18. Now try copying the file from local to hdfs path. 
 
 	```
-	hdfs dfs -put /home/hadoopuser/example.txt / 
+	hdfs dfs -put /home/hdoopuser/example.txt / 
 	```
 	
 15. Check if the file is copied or not .
