@@ -275,7 +275,7 @@ After all 6 modifications, follow the below instrutions.
 	hdfs dfs -ls /
 	```
 
-15. Create an empty file inside ``/home/hadoopuser/``
+15. Create an empty file inside ``/home/hdoopuser/``
 
 	```
 	mkdir example.txt
