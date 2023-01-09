@@ -22,15 +22,15 @@
  4. Creating the dataframe for 3 tables.
 
     ```
-       Sales_orders_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","sales_orders").option("user","postgres").option("password","postgrespw").load()  
+        Sales_orders_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","sales_orders").option("user","postgres").option("password","postgrespw").load()  
     ```
  
     ```
-   customers_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","customers").option("user","postgres").option("password","postgrespw").load()
+    customers_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","customers").option("user","postgres").option("password","postgrespw").load()
     ```
   
     ```
-   products_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","products").option("user","postgres").option("password","postgrespw").load()
+    products_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","products").option("user","postgres").option("password","postgrespw").load()
     ```
  
  5. Write the dataframes into hive table.
