@@ -4,11 +4,23 @@
     hive
     ```
  
+ 2. Create a database retail_org
+
+    ```
+    Create database retail_org;
+    ```
+ 
+ 3. Initiate a spark shell with postgresql jar file.
+   
+     ```
+     spark/spark-3.3.1-bin-hadoop3/bin/pyspark --jars /home/hdoopuser/postgresql-42.5.1.jar
+     ```
+
 
  2. Creating the dataframe for 3 tables.
 
     ```
-       Sales_orders_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","sales_orders").option("user","postgres").option("password","postgrespw").load()  
+        Sales_orders_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","sales_orders").option("user","postgres").option("password","postgrespw").load()  
     ```
  
     ```
@@ -33,14 +45,15 @@
     products_df.write.mode("Overwrite").option("path", "hdfs://localhost:9000/user/hive/warehouse/products").saveAsTable("retail_org.products")
     ```
  
-  4. Initiate a spark shell with postgresql jar file.
-   
-     ```
-     spark/spark-3.3.1-bin-hadoop3/bin/pyspark --jars /home/hdoopuser/postgresql-42.5.1.jar
-     ```
+    
+ 
+5. Import the packages 
 
+    ```
+    from pyspark.sql.types import * 
+    ```
 
-  5. Create product structtype 
+6. Create product structtype 
 
      
      ```
@@ -48,27 +61,19 @@
      
      ```
      
-   
- 
-5. Import the packages 
-
-    ```
-    from pyspark.sql.types import * 
-    ```
- 
-6. Convert the dataframe into list object for reassigning the structtype.
+7. Convert the dataframe into list object for reassigning the structtype.
 
    ```
    data= product_df.rdd.map(lambda x: x)
    ```
  
-7. Creating new dataframe with structtype.
+8. Creating new dataframe with structtype.
  
    ``` 
    product_df = spark.createDataFrame(data=data,schema=ps_schema)
    ```
 
-8. Save the dataframe into Hive table.
+9. Save the dataframe into Hive table.
 
    ```
    product_df.write.mode("Overwrite").option("path", "hdfs://localhost:9000/user/hive/warehouse/products").saveAsTable("retail_org.products")
