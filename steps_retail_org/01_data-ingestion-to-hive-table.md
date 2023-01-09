@@ -9,7 +9,7 @@
  2. Create a database retail_org
 
     ```
-    Create database retail_org;
+    create database retail_org;
     ```
  
  3. Initiate a spark shell with postgresql jar file.
