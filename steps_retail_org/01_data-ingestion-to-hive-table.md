@@ -6,7 +6,7 @@
     hive
     ```
  
- 2. Create a database retail_org
+ 2. Create a database ``retail_org``
 
     ```
     create database retail_org;
@@ -19,21 +19,21 @@
      ```
 
 
- 2. Creating the dataframe for 3 tables.
+ 4. Creating the dataframe for 3 tables.
 
     ```
-        Sales_orders_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","sales_orders").option("user","postgres").option("password","postgrespw").load()  
+       Sales_orders_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","sales_orders").option("user","postgres").option("password","postgrespw").load()  
     ```
  
     ```
-    customers_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","customers").option("user","postgres").option("password","postgrespw").load()
+   customers_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","customers").option("user","postgres").option("password","postgrespw").load()
     ```
   
     ```
-    products_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","products").option("user","postgres").option("password","postgrespw").load()
+   products_df=spark.read.format("jdbc").option("url","jdbc:postgresql://127.0.0.1:5432/retail_org").option("driver","org.postgresql.Driver").option("Database","retail_org").option("dbtable","products").option("user","postgres").option("password","postgrespw").load()
     ```
  
- 3. Write the dataframes into hive table.
+ 5. Write the dataframes into hive table.
 
     ```
     Sales_orders_df.write.mode("Overwrite").option("path", "hdfs://localhost:9000/user/hive/warehouse/sales_orders").saveAsTable("retail_org.sales_orders")
@@ -49,13 +49,13 @@
  
     
  
-5. Import the packages 
+6. Import the packages 
 
     ```
     from pyspark.sql.types import * 
     ```
 
-6. Create product structtype 
+7. Create product structtype 
 
      
      ```
@@ -63,19 +63,19 @@
      
      ```
      
-7. Convert the dataframe into list object for reassigning the structtype.
+8. Convert the dataframe into list object for reassigning the structtype.
 
    ```
    data= product_df.rdd.map(lambda x: x)
    ```
  
-8. Creating new dataframe with structtype.
+9. Creating new dataframe with structtype.
  
    ``` 
    product_df = spark.createDataFrame(data=data,schema=ps_schema)
    ```
 
-9. Save the dataframe into Hive table.
+10. Save the dataframe into Hive table.
 
    ```
    product_df.write.mode("Overwrite").option("path", "hdfs://localhost:9000/user/hive/warehouse/products").saveAsTable("retail_org.products_raw")
