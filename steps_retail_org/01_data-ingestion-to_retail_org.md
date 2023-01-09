@@ -76,5 +76,5 @@
 9. Save the dataframe into Hive table.
 
    ```
-   product_df.write.mode("Overwrite").option("path", "hdfs://localhost:9000/user/hive/warehouse/products").saveAsTable("retail_org.products")
+   product_df.write.mode("Overwrite").option("path", "hdfs://localhost:9000/user/hive/warehouse/products").saveAsTable("retail_org.products_raw")
    ```
